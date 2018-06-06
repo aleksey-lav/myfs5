@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>User page</title>
+    <style>
+        body{
+            background: moccasin;
+            width: 1920px;
+        }
+        .head{
+            height: 200px;
+        }
+        .greeting{
+            font-size: 30px;
+            font-weight: bold;
+            color: darkviolet;
+        }
+        .container{
+            width: 1200px;
+            margin: auto;
+            text-align:center;
+        }
+        .deleteButton:hover{
+            background: red;
+            transform: scale(1.05);
+            border-radius: 7px;
+            transition: transform 0.2s;
+        }
+
+        .blocks{
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        .changeMessage{
+            font-size: 25px;
+            font-weight: bold;
+            color: darkviolet;
+            animation: dis 2s 2s forwards;
+        }
+
+        @keyframes dis{
+            from {opacity: 1;}
+            to {opacity: 0;}
+        }
+
+
+    </style>
+</head>
+<body>
+<div class= "container">
+    <div class = "head"></div>
+    <span class="greeting">Welcome to our shop, %s!</span>
+    <br><br>
+    <form action="client" method="post">
+        <input type="hidden" value="delete" name="action">
+        <input type="hidden" value=%s name="login">
+        <input class = "deleteButton" type="submit" value="DO NOT WANT TO BE A CLIENT">
+    </form>
+    <br>
+    <span class="greeting">you can now change your credentials as well</span>
+    <form action="client" method="post">
+        <input type="hidden" value="change" name="action">
+        <input type="hidden" value=%s name="login">
+        <input class="blocks" placeholder="password" type="password" name="pass" size="20">
+        <input class="blocks" placeholder="repeat password" type="password" name="checkPass" size="20">
+        <input class="blocks" placeholder="first name" type="text" name="firstName" size="20">
+        <input class="blocks" placeholder="surname" type="text" name="secondName" size="20">
+        <input type="submit" value="SAVE CHANGES">
+    </form>
+
+    <div class="changeMessage">%s</div>
+</div>
+
+</body>
+</html>
